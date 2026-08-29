@@ -1,0 +1,28 @@
+# Mi cueva personalizada 4x4 (Ejercicio 1).
+# (1, 1) es la casilla inferior izquierda. El agente inicia ahi, mirando al este.
+
+grid:
+  width: 4
+  height: 4
+
+agent:
+  start: [1, 1]
+  direction: east
+  arrows: 1
+
+wumpus: [3, 3]
+
+pits:
+  - [4, 2]
+  - [2, 4]
+  - [1, 4]
+
+gold: [2, 2]
+
+scoring:
+  gold: 1000
+  death: -1000
+  step: -1
+  shoot: -10
+
+max_steps: 200

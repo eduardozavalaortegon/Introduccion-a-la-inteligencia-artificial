@@ -1,0 +1,29 @@
+# Variante de mi_cueva_4x4.yaml para el analisis de la pregunta 3.
+# Se movio el pit de [4,2] a [2,1]: queda pegado a la casilla inicial [1,1]
+# y sobre el camino que el agente model-based usaba para llegar al oro.
+
+grid:
+  width: 4
+  height: 4
+
+agent:
+  start: [1, 1]
+  direction: east
+  arrows: 1
+
+wumpus: [3, 3]
+
+pits:
+  - [2, 1]
+  - [2, 4]
+  - [1, 4]
+
+gold: [2, 2]
+
+scoring:
+  gold: 1000
+  death: -1000
+  step: -1
+  shoot: -10
+
+max_steps: 200
