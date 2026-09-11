@@ -13,14 +13,15 @@ que se dejaron intactas para conservar la corrida de referencia):
   con 4 capas `Dense(3, activation="sigmoid")`, se entrena por separado en `history_deep`
   (sin pisar `model`/`history` originales) y grafica ambas curvas de pérdida juntas.
 
-**Qué te toca hacer tú:**
-1. Sube ambos `.ipynb` a [Google Colab](https://colab.research.google.com/) (Archivo → Subir notebook).
-2. `Runtime → Run all` en cada uno.
-3. Captura: la curva de error original, la curva profunda (o la combinada que ya grafica
-   ambas), y en Keras los dos `model.summary()` (original ya estaba, profundo es nuevo).
-4. Guarda esas capturas en `05_Perceptron_multicapa/ejercicio_01/`.
-5. Con los números reales (error final original vs. profundo, en NumPy y en Keras),
-   dime los valores y armamos el reporte comparativo.
+**Actualización — corrido localmente (autorizado por el profesor):** venv en `C:\venvs\mlp`
+(numpy, scikit-learn, pandas, tensorflow/keras — CPU, sin GPU NVIDIA en esta máquina). Ambas
+notebooks se ejecutaron de punta a punta dos veces, sin errores. Se corrigió además un bug real
+de la notebook **original** de NumPy: `generate_weights()` usaba `np.random.rand(1)` para llenar
+un escalar, incompatible con NumPy ≥ 2.0 (`ValueError`). Se cambió a `np.random.rand()` — mismo
+comportamiento, solo compatible con NumPy moderno. Sin este arreglo la notebook original ni
+siquiera corre.
 
-No se probó `05` localmente (necesita TensorFlow); si Colab marca algún error de sintaxis
-avísame y lo reviso.
+Las versiones ejecutadas (con todas las salidas, gráficas y `model.summary()` ya incluidos)
+quedaron guardadas junto a estas como `... - EJECUTADA.ipynb`. Las gráficas y el
+`model.summary()` extraídos como evidencia, más el reporte completo, están en
+`05_Perceptron_multicapa/ejercicio_01/`.

@@ -10,16 +10,16 @@ referencia, con celdas nuevas al final (las originales de Zidane/bus quedaron in
   bus) sobre la misma foto, muestra el resultado, y además imprime cada clase detectada
   con su confianza (útil para el reporte).
 
-**Qué te toca hacer tú (esto sí necesita algo tuyo — no puedo generarlo):**
-1. Sube la notebook a [Google Colab](https://colab.research.google.com/).
-2. `Runtime → Change runtime type → GPU (T4)`.
-3. `Runtime → Run all` — esto corre primero Zidane y el bus (sin cambios).
-4. Sube tu foto al panel de archivos de Colab (ícono de carpeta a la izquierda, arrastra
-   el archivo), o consigue una URL pública directa a una imagen tuya. Debe verse al menos
-   un objeto que COCO reconozca (persona, perro, silla, auto, taza, laptop, etc.).
-5. Edita la celda `MI_FOTO = 'mi_foto.jpg'` con el nombre real de tu archivo (o la URL).
-6. Corre solo esas 2 últimas celdas de código.
-7. Captura las 3 salidas (Zidane, bus, tu foto) y guárdalas en
-   `06_Vision_computacional/ejercicio_01/`.
-8. Pásame las clases que detectó en tu foto (las imprime la última celda) y armamos el
-   reporte.
+**Actualización — corrido localmente (autorizado por el profesor):** venv en `C:\venvs\yolo`
+(ultralytics + torch CPU — no hay GPU NVIDIA en esta máquina, ver notas de Perceptrón multicapa).
+Verificado de punta a punta dos veces. Se encontraron y arreglaron 2 bugs reales de entorno:
+
+1. Dentro del kernel de Jupyter local, `!yolo ...` no encontraba el comando (no está en el PATH
+   del subproceso) — afectaba **también** a la celda original de Zidane, no solo a las nuevas.
+   Se arregló resolviendo la ruta completa de `yolo.exe` vía `sys.executable`.
+2. La lógica para mostrar "la imagen más reciente" en `runs/detect/predict*/` tomaba el primer
+   archivo que encontraba `glob`, no el más nuevo — se corrigió usando `max(..., key=os.path.getmtime)`.
+
+**Imagen final usada: `mi_foto.png`** (foto real propia, selfie con 3 personas). El reporte y las
+4 capturas ya están en `06_Vision_computacional/ejercicio_01/`. La versión ejecutada completa (con
+todas las salidas) quedó guardada como `13 YOLO ultralytics (modificado) - EJECUTADA.ipynb`.

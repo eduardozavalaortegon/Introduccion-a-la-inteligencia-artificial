@@ -1,0 +1,11 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+runs/
+
+# Auto-downloaded assets (pretrained weights, tutorial sample images) -- not authored content
+06_Vision_computacional/notebooks_colab/yolov8n.pt
+06_Vision_computacional/notebooks_colab/zidane.jpg
+06_Vision_computacional/notebooks_colab/bus.jpg
